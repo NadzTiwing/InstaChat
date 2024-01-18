@@ -1,0 +1,228 @@
+.chatroom {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    background-color: rgb(0,0,0);
+    background: -webkit-linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0, 0.7)), url("./../../../assets/login-bg.png");
+    background: linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0, 0.7)), url("./../../../assets/login-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* sidebar */
+
+.sidebar {
+    width: 25%;
+    height: 100vh;
+    background: var(--dark-blue);
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.7);
+    color: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 1rem;
+    color: var(--light-blue);
+}
+
+.sidebar .room.selected, .room:hover {
+    background-color: black !important;
+    cursor: pointer;
+}
+
+.sidebar ul li {
+    border-bottom: 3px solid black;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logout {
+    margin: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: transparent;
+    color:gray;
+    border: none;
+}
+
+.logout:hover {
+    color: white;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.create-room {
+    margin: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: transparent;
+    color:var(--mid-blue);
+    border: hidden;
+}
+
+.create-room:hover {
+    color:var(--light-blue);
+    border: 2px solid var(--light-blue);
+    transition: 0.5s;
+}
+
+/* create room dialog */
+.modal {
+    width: 30rem;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal::backdrop {
+    background: hsl(0 0% 0% / 50%);
+}
+  
+.modal-close-btn {
+    font-size: 1.5rem;
+    align-self: flex-end;
+    width: 10%;
+    border: none;
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+.modal-close-btn span:hover {
+    color: rgb(233, 83, 83);
+    
+}
+
+.create-room-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-room-form .room-input {
+    padding: 5px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    margin: 1rem;
+    cursor:text;
+}
+
+.create-room-btn {
+    border: 1px var(--light-blue) transparent;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--light-blue);
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.create-room-btn:hover {
+    background-color: var(--mid-blue);
+}
+
+
+/* chat component */
+
+.chatbox {
+    background-color: transparent;
+    flex-grow: 2;
+    /* border: 5px solid black; */
+    height: 100vh; 
+}
+
+.messages-wrapper {
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.chat-bubble {
+    border-radius: 15px 15px 15px 0;
+    padding: 15px;
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    width: max-content;
+    max-width: calc(100% - 50px);
+    box-shadow: -2px 2px 5px 1px var(--mid-blue);
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.chat-bubble.right {
+    margin-left: auto;
+    border-radius: 20px 20px 0 20px;
+    background-color: #fff;
+    box-shadow: -2px 2px 1px 1px #88dded;
+}
+.chat-bubble__left {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--dark-blue);
+}
+.user-message {
+    word-break: break-all;
+}
+.message-time {
+    display: block;
+    text-align: right;
+}
+
+/* send message */
+.send-message {
+    position: fixed;
+    bottom: 0px;
+    width: 75%;
+    padding: 20px 30px;
+    background-color: var(--mid-blue);
+    display: flex;
+}
+.send-message > input {
+    height: 40px;
+    padding: 10px 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    flex-grow: 1;
+    background-color: white;
+    color: var(--dark-blue);
+    font-size: 1rem;
+}
+.send-message > input:placeholder {
+    color: #ddd;
+}
+.send-message > :is(input, button):focus {
+    outline: none;
+    border-bottom: 1px solid var(--light-blue);
+}
+.send-message > button {
+    width: 70px;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    color: #242443;
+    border: 1px solid var(--light-blue);
+    background-color: var(--light-blue);
+    font-weight: 600;
+}
