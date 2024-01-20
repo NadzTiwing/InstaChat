@@ -1,18 +1,37 @@
+import { createContext, useContext, useState, ReactNode } from "react";
 import Sidebar from "./components/sidebar";
 import ChatBox from "./components/chatbox";
 import './style/index.css';
+import { IRoomContext } from "./../../types";
+
+const RoomContext = createContext<IRoomContext | undefined>(undefined);
 
 const ChatRoom = () => {
+    const [selectedRoomId, setSelectedRoomId] = useState('');
+  
+    const onSelectRoom = (room: string) => {
+        setSelectedRoomId(room);
+    };
     return(
-        <main className="chatroom">
-            <aside className="sidebar">
-                <Sidebar />
-            </aside>
-            <section className="chatbox">
-                <ChatBox />
-            </section> 
-        </main>
+        <RoomContext.Provider value={{ selectedRoomId, onSelectRoom}}>
+            <main className="chatroom">
+                <aside className="sidebar">
+                    <Sidebar />
+                </aside>
+                <section className="chatbox">
+                    <ChatBox />
+                </section> 
+            </main>
+        </RoomContext.Provider>
     )
-}
+};
 
-export default ChatRoom;
+const useRoomContext = () => {
+    const context = useContext(RoomContext);
+    if (!context) {
+      throw new Error('RoomContext must be used within a RoomContextProvider');
+    }
+    return context;
+  };
+
+export { ChatRoom, RoomContext, useRoomContext };

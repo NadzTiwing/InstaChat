@@ -1,12 +1,17 @@
-import ChatRoom from './pages/chatroom';
+import { auth } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { ChatRoom } from './pages/chatroom';
 import Login from './pages/login';
-import { useState } from 'react';
 
 function App() {
-  const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
+  const [user] = useAuthState(auth);
   return (
     <>
-      { isAuthenticated ? <ChatRoom/> : <Login/>  }
+      { !user ? 
+      <Login/>
+      : 
+      <ChatRoom/>
+      }
     </>
   )
 }

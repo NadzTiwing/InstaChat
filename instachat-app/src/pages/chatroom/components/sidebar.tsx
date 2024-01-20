@@ -1,38 +1,22 @@
-import { useState } from "react";
-import CreateRoomDialog from "./createRoomDialog";
+
+import { auth } from "./../../../firebase";
+import CreateRoom from "./room/create";
+import RoomList from "./room/list";
 
 const Sidebar = () => {
-    const [isOpenModal, setOpenModal] = useState<boolean>(false);
-
-    const handleCloseModal = () => {
-        setOpenModal(false);
-    }
-    
     const onLogout = () => {
-        
+        auth.signOut();
     }
 
     return(
         <>
-        <ul className="room-list">
-            <li className="room selected">
-                Room one
-            </li>
-            <li className="room">
-                Room two
-            </li>
-            
-        </ul>
+        <RoomList />
         <div className="options">
             <button className="logout" onClick={() => onLogout()}>
                 Logout
             </button>
-            <button className="create-room" onClick={()=>setOpenModal(true)}>
-                Create Room
-            </button>
+            <CreateRoom />
         </div>
-        <CreateRoomDialog isOpen={isOpenModal} onClose={handleCloseModal}
-        />
         </>
     );
 }

@@ -1,9 +1,13 @@
+import { auth } from "./../../firebase";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
 import background from './../../assets/login-bg.png';
 import GoogleSignin from './../../assets/btn_google_signin.png';
 import './style/index.css';
 
 const Login = () => {
     const googleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithRedirect(auth, provider);
     };
     
     return(
