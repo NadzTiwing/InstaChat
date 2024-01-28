@@ -1,0 +1,68 @@
+@media only screen and (max-width: 430px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .sidebar.show-menu {
+        display: block !important;
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        background: #000;
+    }
+
+    .room-list li:first-child {
+        padding-top: 2.5rem;
+    }
+
+    .room.selected {
+        background-color: var(--dark-blue) !important;
+    }
+    
+
+    .send-message {
+        width: 100% !important;
+    }
+
+    .chat-bubble {
+        width: 70% !important;
+    }
+
+    .chat-bubble__right {
+        margin-left: 0.25rem;
+    }
+
+    .main-user .chat-bubble__right {
+        margin-left: 0.25rem !important;
+    }
+
+    .messages-wrapper {
+        height: 90vh;
+        overflow-y: auto;
+    }
+
+    .burger-menu {
+        display: block !important;
+        position: absolute;
+        right: 0;
+        z-index: 999 !important;
+        margin: 0.5rem 1rem;
+        color: gray;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 2px solid gray;
+    }
+
+    .burger-menu.hide {
+        display: none !important;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translate(0,0);
+    }
+    100% {
+        transform: translate(100%,0);    
+    }
+}

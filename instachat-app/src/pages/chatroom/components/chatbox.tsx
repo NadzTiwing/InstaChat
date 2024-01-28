@@ -44,7 +44,7 @@ const ChatBox = () => {
         });
         
         return () => {
-            unsubscribe
+          unsubscribe
         };
       }
     }, [selectedRoomId]);

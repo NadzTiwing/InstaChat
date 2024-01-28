@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState } from "react";
 import Sidebar from "./components/sidebar";
 import ChatBox from "./components/chatbox";
 import './style/index.css';
@@ -8,17 +8,22 @@ const RoomContext = createContext<IRoomContext | undefined>(undefined);
 
 const ChatRoom = () => {
     const [selectedRoomId, setSelectedRoomId] = useState('');
+    const [isShowMenu, setShowMenu] = useState<boolean>(false);
   
     const onSelectRoom = (room: string) => {
         setSelectedRoomId(room);
     };
+
     return(
-        <RoomContext.Provider value={{ selectedRoomId, onSelectRoom}}>
+        <RoomContext.Provider value={{ selectedRoomId, onSelectRoom }}>
             <main className="chatroom">
-                <aside className="sidebar">
+                <aside className={isShowMenu ? 'sidebar show-menu' : 'sidebar'}>
                     <Sidebar />
                 </aside>
                 <section className="chatbox">
+                    <button className='burger-menu' onClick={()=> setShowMenu(!isShowMenu)}>
+                        {isShowMenu ? <i className="fa fa-times"></i> : <i className="fa fa-bars"></i> }
+                    </button>
                     <ChatBox />
                 </section> 
             </main>
