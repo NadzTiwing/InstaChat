@@ -41,13 +41,14 @@
     width: 25%;
     height: 100vh;
     background: var(--dark-blue);
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.7);
+    background-color: var(--light-yellow);
+    /* background-color: rgba(0,0,0, 0.7); */
     color: var(--light-blue);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 2;
+    border-right: var(--neo-border);
 }
 
 .sidebar ul {
@@ -58,12 +59,13 @@
 
 .sidebar ul li {
     padding: 1rem;
-    color: var(--light-blue);
+    color: black;
 }
 
 .sidebar .room.selected, .room:hover {
     background-color: black;
     cursor: pointer;
+    color: white;
 }
 
 .sidebar ul li {
@@ -94,13 +96,13 @@
     margin: 1rem;
     padding: 0.5rem 2rem;
     background-color: transparent;
-    color:var(--mid-blue);
+    color:gray;
     border: hidden;
 }
 
 .create-room:hover {
-    color:var(--light-blue);
-    border: 2px solid var(--light-blue);
+    color:white;
+    background-color: black;
     transition: 0.5s;
 }
 
@@ -142,7 +144,7 @@
 
 .create-room-form .room-input {
     padding: 5px;
-    border: 2px solid lightgray;
+    border: var(--neo-border);
     border-radius: 3px;
     margin: 0.5rem 0;
     width: 100%;
@@ -150,16 +152,21 @@
 }
 
 .create-room-btn {
-    border: 1px var(--light-blue) transparent;
+    border: var(--neo-border);
     border-radius: 5px;
     padding: 0.5rem;
     background-color: var(--light-blue);
-    color: var(--dark-gray);
+    color: black;
     font-weight: 500;
 }
 
 .create-room-btn:hover {
     background-color: var(--mid-blue);
+}
+
+.react-responsive-modal-modal {
+    border: var(--neo-border);
+    border-radius: 10px;
 }
 
 .room {
@@ -213,11 +220,17 @@
     color: var(--dark-blue);
     width: max-content;
     max-width: calc(100% - 50px);
-    box-shadow: -2px 2px 5px 1px var(--mid-blue);
+    border: 2px solid black;
+    box-shadow: -5px 5px black;
     display: flex;
     align-self: flex-start;
     margin-bottom: 20px;
 }
+
+/* .chat-bubble.main-user img {
+    border: 1px solid
+} */
+
 .main-user .chat-bubble__right {
     margin-left: auto;
 }
@@ -232,11 +245,11 @@
 .chat-bubble.others {
     border-radius:  15px  15px 0 15px;
     padding: 15px;
-    background-color: whitesmoke;
+    background-color: var(--light-yellow);
     color: var(--dark-blue);
     width: max-content;
     max-width: calc(100% - 50px);
-    box-shadow: -3px 5px 5px 1px black;
+    box-shadow: -5px 5px black;
     display: flex;
     align-self: flex-end;
     margin-bottom: 20px;
@@ -272,14 +285,16 @@
     bottom: 0px;
     width: 75%;
     padding: 20px 30px;
-    background-color: var(--mid-blue);
+    background-color: var(--dark-blue);
     display: flex;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px 3px 3px 0;
 }
 .send-message > input {
     height: 40px;
     padding: 10px 10px;
-    border-radius: 5px 0 0 5px;
-    border: none;
+    border: var(--neo-border);
     flex-grow: 1;
     background-color: white;
     color: var(--dark-blue);
@@ -298,8 +313,10 @@
     height: 40px;
     padding: 5px 10px;
     border-radius: 0 5px 5px 0;
-    color: #242443;
-    border: 1px solid var(--light-blue);
+    color: black;
+    border-width: 3px 3px 3px 0;
+    border-color: black;
+    border-style: solid;
     background-color: var(--light-blue);
-    font-weight: 600;
+    font-weight: bolder;
 }

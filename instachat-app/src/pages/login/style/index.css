@@ -12,9 +12,10 @@
   
   /* Position text in the middle of the page/image */
 .login-box {
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.7); /* Black w/opacity/see-through */
-    color: white;
+    background-color: #A388EE;
+    border: var(--neo-border);
+    border-radius: 10px;
+    color: black;
     font-weight: bold;
     position: absolute;
     top: 50%;

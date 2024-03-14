@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Public Sans", Inter, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,6 +13,9 @@
   --dark-blue: #1c2c4c;
   --dark-gray: #232524;
   --red: rgb(233, 83, 83);
+  --neo-border: 3px solid black;
+  --purple: #A388EE;
+  --light-yellow: #FDFD96;
 }
 
 
