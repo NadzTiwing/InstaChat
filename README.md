@@ -1,2 +1,2 @@
 # InstaChat
- Real-time Chat Application for True Roas
+ Real-time Chat Application using React, Typescript and Firebase
